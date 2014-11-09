@@ -3,6 +3,7 @@ package com.github.ericdahl.dropwizard_mersenne_primes.resources;
 import com.codahale.metrics.annotation.Timed;
 import com.github.ericdahl.dropwizard_mersenne_primes.api.PrimeResult;
 import com.github.ericdahl.dropwizard_mersenne_primes.core.PrimeCalculator;
+import io.dropwizard.jersey.caching.CacheControl;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -22,6 +23,7 @@ public class PrimeResource {
 
     @GET
     @Path("{n}")
+    @CacheControl(immutable = true)
     @Timed
     public PrimeResult calculate(@PathParam("n") int n) {
         return calculator.calculate(n);
