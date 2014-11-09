@@ -1,0 +1,5 @@
+calculator: com.github.ericdahl.dropwizard_mersenne_primes.core.BasicCalculator
+
+logging:
+  loggers:
+    "com.github.ericdahl.dropwizard_mersenne_primes.core.LucasLehmerCalculator": DEBUG
