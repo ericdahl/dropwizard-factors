@@ -18,10 +18,8 @@ public class BasicCalculator implements PrimeCalculator {
 
         BigInteger p = TWO.pow(n).subtract(BigInteger.ONE);
 
-        for (BigInteger i = TWO; i.compareTo(p) < 0; i = i.add(BigInteger.ONE))
-        {
-            if (p.mod(i).equals(BigInteger.ZERO))
-            {
+        for (BigInteger i = TWO; i.compareTo(p) < 0; i = i.add(BigInteger.ONE)) {
+            if (p.mod(i).equals(BigInteger.ZERO)) {
                 return new PrimeResult(n, false);
             }
         }
