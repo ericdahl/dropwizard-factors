@@ -1,8 +1,8 @@
-calculator: com.github.ericdahl.dropwizard_mersenne_primes.core.BasicCalculator
+calculator: com.github.ericdahl.dropwizard_factors.core.BasicFactorCalculator
 
 logging:
   loggers:
-    "com.github.ericdahl.dropwizard_mersenne_primes.core.LucasLehmerCalculator": DEBUG
+    "com.github.ericdahl.dropwizard_factors.core.BasicFactorCalculator": DEBUG
 
 server:
   applicationConnectors:

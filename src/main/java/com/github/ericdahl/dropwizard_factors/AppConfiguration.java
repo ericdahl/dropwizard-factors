@@ -1,6 +1,6 @@
-package com.github.ericdahl.dropwizard_mersenne_primes;
+package com.github.ericdahl.dropwizard_factors;
 
-import com.github.ericdahl.dropwizard_mersenne_primes.core.PrimeCalculator;
+import com.github.ericdahl.dropwizard_factors.core.FactorCalculator;
 import io.dropwizard.Configuration;
 
 import javax.validation.constraints.NotNull;
@@ -8,17 +8,17 @@ import javax.validation.constraints.NotNull;
 public class AppConfiguration extends Configuration {
 
     @NotNull
-    private Class<? extends PrimeCalculator> calculator;
+    private Class<? extends FactorCalculator> calculator;
 
-    public Class<? extends PrimeCalculator> getCalculator() {
+    public Class<? extends FactorCalculator> getCalculator() {
         return calculator;
     }
 
-    public void setCalculator(Class<? extends PrimeCalculator> calculator) {
+    public void setCalculator(Class<? extends FactorCalculator> calculator) {
         this.calculator = calculator;
     }
 
-    public PrimeCalculator createCalculator() {
+    public FactorCalculator createCalculator() {
         try {
             return calculator.newInstance();
         } catch (InstantiationException | IllegalAccessException e) {

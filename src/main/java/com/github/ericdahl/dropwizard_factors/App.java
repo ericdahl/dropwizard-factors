@@ -1,7 +1,7 @@
-package com.github.ericdahl.dropwizard_mersenne_primes;
+package com.github.ericdahl.dropwizard_factors;
 
-import com.github.ericdahl.dropwizard_mersenne_primes.health.PrimeHealthCheck;
-import com.github.ericdahl.dropwizard_mersenne_primes.resources.PrimeResource;
+import com.github.ericdahl.dropwizard_factors.health.FactorHealthCheck;
+import com.github.ericdahl.dropwizard_factors.resources.FactorResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -18,7 +18,7 @@ public class App extends Application<AppConfiguration> {
 
     @Override
     public String getName() {
-        return "dropwizard-mersenne-primes";
+        return "dropwizard-factors";
     }
 
     @Override
@@ -30,7 +30,7 @@ public class App extends Application<AppConfiguration> {
     public void run(final AppConfiguration config, final Environment environment) {
         LOGGER.info("config loaded: [{}]", config.getCalculator());
 
-        environment.healthChecks().register("primes", new PrimeHealthCheck());
-        environment.jersey().register(new PrimeResource(config.createCalculator()));
+        environment.healthChecks().register("factors", new FactorHealthCheck());
+        environment.jersey().register(new FactorResource(config.createCalculator()));
     }
 }
